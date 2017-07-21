@@ -1,0 +1,4 @@
+"0","data(regicor)"
+"0","# descriptives by sex"
+"0","res <- compareGroups(sex ~ .-id-tocv-cv-todeath-death, data = regicor)"
+"0","clean_table <- createTable(res)"

@@ -1,0 +1,266 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={CompareGroups and Bookdown Error},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{CompareGroups and Bookdown Error}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+\subtitle{Bookdown table is not shown correctly}
+  \author{}
+  \preauthor{}\postauthor{}
+  \date{}
+  \predate{}\postdate{}
+
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{suppressPackageStartupMessages}\NormalTok{(}\KeywordTok{library}\NormalTok{(compareGroups))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'ggplot2' was built under R version 3.4.1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{data}\NormalTok{(regicor)}
+
+\CommentTok{# descriptives by sex}
+\NormalTok{res <-}\StringTok{ }\KeywordTok{compareGroups}\NormalTok{(sex }\OperatorTok{~}\StringTok{ }\NormalTok{.}\OperatorTok{-}\NormalTok{id}\OperatorTok{-}\NormalTok{tocv}\OperatorTok{-}\NormalTok{cv}\OperatorTok{-}\NormalTok{todeath}\OperatorTok{-}\NormalTok{death, }\DataTypeTok{data =}\NormalTok{ regicor)}
+
+\NormalTok{clean_table <-}\StringTok{ }\KeywordTok{createTable}\NormalTok{(res)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# just show the first 5 rows for brevity}
+\KeywordTok{export2md}\NormalTok{(clean_table[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:md-output}Summary descriptives table by groups of `Sex'}
+\centering
+\begin{tabular}[t]{l|c|c|c}
+\hline
+Var & Male   N=1101 & Female   N=1193 & p.overall\\
+\hline
+Recruitment year: &  &  & 0.506\\
+\hline
+\&nbsp;\&nbsp;\&nbsp;\&nbsp;1995 & 206 (18.7\%) & 225 (18.9\%) & \\
+\hline
+\&nbsp;\&nbsp;\&nbsp;\&nbsp;2000 & 390 (35.4\%) & 396 (33.2\%) & \\
+\hline
+\&nbsp;\&nbsp;\&nbsp;\&nbsp;2005 & 505 (45.9\%) & 572 (47.9\%) & \\
+\hline
+Age & 54.8 (11.1) & 54.7 (11.0) & 0.840\\
+\hline
+Smoking status: &  &  & <0.001\\
+\hline
+\&nbsp;\&nbsp;\&nbsp;\&nbsp;Never smoker & 301 (28.1\%) & 900 (77.5\%) & \\
+\hline
+\&nbsp;\&nbsp;\&nbsp;\&nbsp;Current or former < 1y & 410 (38.3\%) & 183 (15.7\%) & \\
+\hline
+\&nbsp;\&nbsp;\&nbsp;\&nbsp;Former >= 1y & 360 (33.6\%) & 79 (6.80\%) & \\
+\hline
+Systolic blood pressure & 134 (18.9) & 129 (21.2) & <0.001\\
+\hline
+Diastolic blood pressure & 81.7 (10.2) & 77.8 (10.5) & <0.001\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{devtools}\OperatorTok{::}\KeywordTok{session_info}\NormalTok{(}\StringTok{'bookdown'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Session info -------------------------------------------------------------
+\end{verbatim}
+
+\begin{verbatim}
+##  setting  value                       
+##  version  R version 3.4.0 (2017-04-21)
+##  system   x86_64, mingw32             
+##  ui       RTerm                       
+##  language (EN)                        
+##  collate  English_United States.1252  
+##  tz       America/New_York            
+##  date     2017-07-21
+\end{verbatim}
+
+\begin{verbatim}
+## Packages -----------------------------------------------------------------
+\end{verbatim}
+
+\begin{verbatim}
+##  package   * version date       source                           
+##  backports   1.1.0   2017-05-22 CRAN (R 3.4.0)                   
+##  base64enc   0.1-3   2015-07-28 CRAN (R 3.4.0)                   
+##  bitops      1.0-6   2013-08-17 CRAN (R 3.4.0)                   
+##  bookdown    0.4.1   2017-07-21 Github (rstudio/bookdown@7fe1b99)
+##  caTools     1.17.1  2014-09-10 CRAN (R 3.4.0)                   
+##  digest      0.6.12  2017-01-27 CRAN (R 3.4.1)                   
+##  evaluate    0.10    2016-10-11 CRAN (R 3.4.0)                   
+##  graphics  * 3.4.0   2017-04-21 local                            
+##  grDevices * 3.4.0   2017-04-21 local                            
+##  highr       0.6     2016-05-09 CRAN (R 3.4.0)                   
+##  htmltools   0.3.6   2017-04-28 CRAN (R 3.4.0)                   
+##  jsonlite    1.5     2017-06-01 CRAN (R 3.4.1)                   
+##  knitr       1.16    2017-05-18 CRAN (R 3.4.0)                   
+##  magrittr    1.5     2014-11-22 CRAN (R 3.4.0)                   
+##  markdown    0.8     2017-04-20 CRAN (R 3.4.0)                   
+##  methods   * 3.4.0   2017-04-21 local                            
+##  mime        0.5     2016-07-07 CRAN (R 3.4.0)                   
+##  Rcpp        0.12.11 2017-05-22 CRAN (R 3.4.0)                   
+##  rmarkdown   1.6     2017-06-15 CRAN (R 3.4.1)                   
+##  rprojroot   1.2     2017-01-16 CRAN (R 3.4.0)                   
+##  stats     * 3.4.0   2017-04-21 local                            
+##  stringi     1.1.5   2017-04-07 CRAN (R 3.4.0)                   
+##  stringr     1.2.0   2017-02-18 CRAN (R 3.4.1)                   
+##  tools       3.4.0   2017-04-21 local                            
+##  utils     * 3.4.0   2017-04-21 local                            
+##  yaml        2.1.14  2016-11-12 CRAN (R 3.4.0)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rmarkdown}\OperatorTok{::}\KeywordTok{pandoc_version}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] '1.19.2.1'
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{system}\NormalTok{(}\StringTok{'pdflatex --version'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}

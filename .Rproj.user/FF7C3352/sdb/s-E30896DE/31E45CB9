@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"CompareGroups and Bookdown Error\"\nsubtitle: \"No Issues with pdf_document\"\noutput: \n  pdf_document:\n    keep_tex: true\n\n---\n\n```{r libraries}\nsuppressPackageStartupMessages(library(compareGroups))\n```\n\n\n```{r data-setup}\ndata(regicor)\n\n# descriptives by sex\nres <- compareGroups(sex ~ .-id-tocv-cv-todeath-death, data = regicor)\n\nclean_table <- createTable(res)\n```\n\n\n```{r md-output}\n# just show the first 5 rows for brevity\nexport2md(clean_table[1:5])\n```\n\n```{r}\ndevtools::session_info('bookdown')\nrmarkdown::pandoc_version()\nsystem('pdflatex --version')\n```\n\n\n",
+    "created" : 1500645939715.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "97859388",
+    "id" : "31E45CB9",
+    "lastKnownWriteTime" : 1500646473,
+    "last_content_update" : 1500646473466,
+    "path" : "H:/Personal/Projects/bookdown_bug_report/pdf_document.Rmd",
+    "project_path" : "pdf_document.Rmd",
+    "properties" : {
+        "last_setup_crc32" : "8359E180be3e7798",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

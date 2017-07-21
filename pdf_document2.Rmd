@@ -1,0 +1,36 @@
+---
+title: "CompareGroups and Bookdown Error"
+subtitle: "Bookdown table is not shown correctly"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: true
+
+---
+
+```{r libraries}
+suppressPackageStartupMessages(library(compareGroups))
+```
+
+
+```{r data-setup}
+data(regicor)
+
+# descriptives by sex
+res <- compareGroups(sex ~ .-id-tocv-cv-todeath-death, data = regicor)
+
+clean_table <- createTable(res)
+```
+
+
+```{r md-output}
+# just show the first 5 rows for brevity
+export2md(clean_table[1:5])
+```
+
+```{r}
+devtools::session_info('bookdown')
+rmarkdown::pandoc_version()
+system('pdflatex --version')
+```
+
+
