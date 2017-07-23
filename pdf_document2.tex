@@ -142,6 +142,12 @@
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\NormalTok{opts_knit}\OperatorTok{$}\KeywordTok{set}\NormalTok{(}\DataTypeTok{kable.force.latex=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \KeywordTok{data}\NormalTok{(regicor)}
 
 \CommentTok{# descriptives by sex}
@@ -158,38 +164,34 @@
 \end{Highlighting}
 \end{Shaded}
 
-\begin{table}
-
-\caption{\label{tab:md-output}Summary descriptives table by groups of `Sex'}
-\centering
-\begin{tabular}[t]{l|c|c|c}
-\hline
-Var & Male   N=1101 & Female   N=1193 & p.overall\\
-\hline
-Recruitment year: &  &  & 0.506\\
-\hline
-\&nbsp;\&nbsp;\&nbsp;\&nbsp;1995 & 206 (18.7\%) & 225 (18.9\%) & \\
-\hline
-\&nbsp;\&nbsp;\&nbsp;\&nbsp;2000 & 390 (35.4\%) & 396 (33.2\%) & \\
-\hline
-\&nbsp;\&nbsp;\&nbsp;\&nbsp;2005 & 505 (45.9\%) & 572 (47.9\%) & \\
-\hline
-Age & 54.8 (11.1) & 54.7 (11.0) & 0.840\\
-\hline
-Smoking status: &  &  & <0.001\\
-\hline
-\&nbsp;\&nbsp;\&nbsp;\&nbsp;Never smoker & 301 (28.1\%) & 900 (77.5\%) & \\
-\hline
-\&nbsp;\&nbsp;\&nbsp;\&nbsp;Current or former < 1y & 410 (38.3\%) & 183 (15.7\%) & \\
-\hline
-\&nbsp;\&nbsp;\&nbsp;\&nbsp;Former >= 1y & 360 (33.6\%) & 79 (6.80\%) & \\
-\hline
-Systolic blood pressure & 134 (18.9) & 129 (21.2) & <0.001\\
-\hline
-Diastolic blood pressure & 81.7 (10.2) & 77.8 (10.5) & <0.001\\
-\hline
-\end{tabular}
-\end{table}
+\begin{longtable}[]{@{}lccc@{}}
+\caption{\label{tab:md-output}Summary descriptives table by groups of
+`Sex'}\tabularnewline
+\toprule
+Var & Male N=1101 & Female N=1193 & p.overall\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Var & Male N=1101 & Female N=1193 & p.overall\tabularnewline
+\midrule
+\endhead
+Recruitment year: & & & 0.506\tabularnewline
+~~~~1995 & 206 (18.7\%) & 225 (18.9\%) &\tabularnewline
+~~~~2000 & 390 (35.4\%) & 396 (33.2\%) &\tabularnewline
+~~~~2005 & 505 (45.9\%) & 572 (47.9\%) &\tabularnewline
+Age & 54.8 (11.1) & 54.7 (11.0) & 0.840\tabularnewline
+Smoking status: & & & \textless{}0.001\tabularnewline
+~~~~Never smoker & 301 (28.1\%) & 900 (77.5\%) &\tabularnewline
+~~~~Current or former \textless{} 1y & 410 (38.3\%) & 183 (15.7\%)
+&\tabularnewline
+~~~~Former \textgreater{}= 1y & 360 (33.6\%) & 79 (6.80\%)
+&\tabularnewline
+Systolic blood pressure & 134 (18.9) & 129 (21.2) &
+\textless{}0.001\tabularnewline
+Diastolic blood pressure & 81.7 (10.2) & 77.8 (10.5) &
+\textless{}0.001\tabularnewline
+\bottomrule
+\end{longtable}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -209,7 +211,7 @@ Diastolic blood pressure & 81.7 (10.2) & 77.8 (10.5) & <0.001\\
 ##  language (EN)                        
 ##  collate  English_United States.1252  
 ##  tz       America/New_York            
-##  date     2017-07-21
+##  date     2017-07-23
 \end{verbatim}
 
 \begin{verbatim}

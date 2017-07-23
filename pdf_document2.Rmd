@@ -9,6 +9,8 @@ output:
 
 ```{r libraries}
 suppressPackageStartupMessages(library(compareGroups))
+knitr::opts_knit$set(kable.force.latex=FALSE)
+
 ```
 
 
